@@ -52,7 +52,7 @@
             }
 
             /* #################################################################
-            Conditional
+            Conditional (if, switch, ternary)
             ################################################################# */
 
             // == -> check only values: "1" == 1 (true)
@@ -84,7 +84,7 @@
             }
 
             /* #################################################################
-            Logical Operators (AND, OR, NOT)
+            Logical Operators (and, or, not)
             ################################################################# */
 
             // AND = &&
@@ -92,8 +92,8 @@
             // NOT = !, !=, !==
 
             // ternary operator
-            function genderTernaryOperator(gender) {
-                return (gender === "M"); // return true if gender is M
+            function genderTernaryOperator(human, gender) {
+                return (human && gender === "M"); // return true if is an human and gender is M
             }
 
             /* #################################################################

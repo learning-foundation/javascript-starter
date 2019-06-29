@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>JavaScript Foundation</title>
+    </head>
+    <body>
+        
+        <!-- HTML Elements -->
+        
+        <script>
+            
+            /* #################################################################
+            Show object properties
+            ################################################################# */   
+
+            var address = {
+                street: "Green Highlands",
+                number: "106",
+                city: "Downtown",
+                state: "NM",
+                country: "Middle Earth"
+            };
+
+            console.log("The user living in " + address.city + " - " + address.state + ", " + address.country + ". ");
+
+            /* #################################################################
+            Show even numbers between interval
+            ################################################################# */   
+
+            function evenNumbersBetween(x, y) {
+                for (var i = x; i <= y; i++) {
+                    if ((i % 2) === 0) {
+                        console.log("even number: " + i);
+                    }
+                }
+            }
+
+            evenNumbersBetween(32, 41);
+
+            /* #################################################################
+            Find a value inside array
+            ################################################################# */   
+
+            // Sample
+            function hasJavascriptSkill(skills) {
+                return (skills.indexOf("JavaScript") > 0) ? true : false;
+            }
+
+            var skills = ["React", "Node", "JavaScript", "Java", "PHP", "C#", "Python"];
+            console.log("JavaScript skill: " + hasJavascriptSkill(skills));
+
+            /* #################################################################
+            Return string based on integer
+            ################################################################# */   
+            
+            function experience(years) {
+                if (years <= 1) {
+                    return "Beginner";
+                } else if (years <= 3) {
+                    return "Intermediate";
+                } else if (years <= 6) {
+                    return "Advanced";                    
+                } else {
+                    return "Master";
+                }
+            }
+
+            console.log("Experience: " + experience(7));
+
+            /* #################################################################
+            Iterate over array
+            ################################################################# */ 
+
+            var users = [
+                {
+                    name: "Antonela",
+                    skills: ["Javascript", "ReactJS", "Redux"]
+                },
+                {
+                    name: "Caroline",
+                    skills: ["VueJS", "Ruby on Rails", "Elixir"]
+                }
+            ];
+
+            function showSkills(users) {
+                for (user of users) {
+                    console.log("User " + user.name + " has skills: " + user.skills.join(", "));
+                }
+            }
+
+            showSkills(users);
+
+        </script>
+
+    </body>
+</html>
