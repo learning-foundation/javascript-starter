@@ -18,6 +18,7 @@
             Variables (string, integer, float, boolean, array, object)
             ################################################################# */ 
             
+            // var: scoped visible
             var name = "Antonela"; // string
             var age = 23; // integer
             var weight = 66.3; // float
@@ -34,12 +35,21 @@
             Math Operations (+, -, /, *, %)
             ################################################################# */            
             
-            var result_1 = 10 + 5; // result is integer: 15 
-            var result_2 = "10" + 5; // result is string: 105
-            var result_3 = 11 % 5; // result is integer: 1
+            var result1 = 10 + 5; // result is integer: 15 
+            var result2 = "10" + 5; // result is string: 105
+            var result3 = 11 % 5; // result is integer: 1
             
             var x = 10;
             x += 3; // sum shortcut
+
+            /* #################################################################
+            Functions
+            ################################################################# */
+
+            function sum(number1, number2) {
+                var result = number1 + number2;
+                return result;
+            }
             
         </script>
     </body>
