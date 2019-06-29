@@ -50,6 +50,34 @@
                 var result = number1 + number2;
                 return result;
             }
+
+            /* #################################################################
+            Conditional
+            ################################################################# */
+
+            // == -> check only values: "1" == 1 (true)
+            // === -> check value and type: "1" === 1 (false)
+
+            function genderIf(gender) {
+                if (gender === "M") {
+                    return "Male";
+                } else if (gender === "F") {
+                    return "Female";
+                } else {
+                    return "Other";
+                }
+            }
+
+            function genderSwitch(gender) {
+                switch (gender) {
+                    case "M":
+                        return "Male";
+                    case "F":
+                        return "Female";
+                    default:
+                        return "Other";
+                }
+            }
             
         </script>
     </body>
