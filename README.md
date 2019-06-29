@@ -2,6 +2,7 @@
 JavaScript basic concepts
 
 - variables
+- math operations
 - functions
 - conditionals
 - loops
