@@ -5,6 +5,7 @@ JavaScript basic concepts
 - math operations
 - functions
 - conditionals
+- logical operators
 - loops
 - DOM handling
 - async requests
