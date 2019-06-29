@@ -7,5 +7,6 @@ JavaScript basic concepts
 - conditionals
 - logical operators
 - loops
+- intervals and timeout
 - DOM handling
 - async requests

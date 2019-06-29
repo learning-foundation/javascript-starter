@@ -102,7 +102,7 @@
 
             // better when loop limit is know
             for (var i = 0; i <= 100; i++) {
-                console.log(i);
+                // do anything
             }
 
             // better when the loop limit is unknow
@@ -110,6 +110,20 @@
             while (j > 50) {
                 j /= 5;
             }
+
+            /* #################################################################
+            Intervals and timeout
+            ################################################################# */
+
+            function doAnything() {
+                // do anything
+            }
+
+            // repeat execution
+            setInterval(doAnything, 1000); // 1000 milisecs = 1 sec
+
+            // execute after delay
+            setTimeout(doAnything, 5000);
 
         </script>
     </body>
