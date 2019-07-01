@@ -206,13 +206,13 @@
 
             var githubButton = document.querySelector('div#container_github button');
             
-            githubButton.onclick = function() {
+            githubButton.onclick = function() {                
                 var inputGithubUser = document.querySelector('div#container_github input');
                 createReposList(inputGithubUser.value);
             };
 
             function createReposList(username) {
-                if (username) {
+                if (username) {                    
                     var url = 'https://api.github.com/users/' + username;
 
                     asyncCallbackGET(url)
@@ -227,12 +227,13 @@
                                 });
                         })
                         .catch(function(error) {
-                            console.warn(error);
+                            renderError();
                         });
                 }
             }
 
             function asyncCallbackGET(url) {
+                renderLoading();
                 return new Promise(function(resolve, reject) {
                     var xhr = new XMLHttpRequest();
                     xhr.open("GET", url);
@@ -259,6 +260,28 @@
                     li.appendChild(text);
                     ul.appendChild(li);
                 }
+                var div = document.querySelector('div#container_github');
+                div.appendChild(ul);
+            }
+
+            function renderLoading() {
+                var ul = document.querySelector('div#container_github ul') || document.createElement('ul');
+                ul.innerHTML = '';
+                var text = document.createTextNode('Loading...');
+                var li = document.createElement('li');
+                li.appendChild(text);
+                ul.appendChild(li);
+                var div = document.querySelector('div#container_github');
+                div.appendChild(ul);
+            }
+
+            function renderError() {
+                var ul = document.querySelector('div#container_github ul') || document.createElement('ul');
+                ul.innerHTML = '';
+                var text = document.createTextNode('Request Error');
+                var li = document.createElement('li');
+                li.appendChild(text);
+                ul.appendChild(li);
                 var div = document.querySelector('div#container_github');
                 div.appendChild(ul);
             }
