@@ -4,7 +4,10 @@
     </head>
     <body>
         
-        <!-- HTML Elements -->
+        <div id="container_github">
+            <input type="text" name="user">
+            <button onclick="">Show repos</button>
+        </div>
         
         <script>
             
@@ -174,6 +177,91 @@
 
             containerElement.appendChild(inputName);
             containerElement.appendChild(buttonAddName);
+
+            /* #################################################################
+            Function with Promise
+            ################################################################# */
+
+            function checkAge(age) {
+                return new Promise(function(resolve, reject) {
+                    if (age >= 18) {
+                        return resolve();
+                    }
+
+                    return reject();
+                });
+            }
+
+            checkAge(20)
+                .then(function() {
+                    console.log('Go');
+                })
+                .catch(function() {
+                    console.log('Stop');
+                });
+
+            /* #################################################################
+            Show user repos
+            ################################################################# */
+
+            var githubButton = document.querySelector('div#container_github button');
+            
+            githubButton.onclick = function() {
+                var inputGithubUser = document.querySelector('div#container_github input');
+                createReposList(inputGithubUser.value);
+            };
+
+            function createReposList(username) {
+                if (username) {
+                    var url = 'https://api.github.com/users/' + username;
+
+                    asyncCallbackGET(url)
+                        .then(function(response) {
+                            var reposUrl = response.repos_url;
+                            asyncCallbackGET(reposUrl)
+                                .then(function(response) {
+                                    renderReposList(response)
+                                })
+                                .catch(function(error) {
+                                    console.warn(error);
+                                });
+                        })
+                        .catch(function(error) {
+                            console.warn(error);
+                        });
+                }
+            }
+
+            function asyncCallbackGET(url) {
+                return new Promise(function(resolve, reject) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", url);
+                    xhr.send(null);
+
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200) {
+                                resolve(JSON.parse(xhr.responseText));
+                            } else {
+                                reject("Request error");
+                            }
+                        }
+                    };
+                });
+            }
+
+            function renderReposList(repos) {
+                var ul = document.querySelector('div#container_github ul') || document.createElement('ul');
+                ul.innerHTML = '';
+                for (repo of repos) {
+                    var text = document.createTextNode(repo.name);
+                    var li = document.createElement('li');
+                    li.appendChild(text);
+                    ul.appendChild(li);
+                }
+                var div = document.querySelector('div#container_github');
+                div.appendChild(ul);
+            }
 
         </script>
 
