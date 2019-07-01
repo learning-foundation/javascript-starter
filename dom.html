@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>JavaScript Foundation</title>
+    </head>
+    <body>
+        
+        <div id="app">
+            
+            <!-- #################################################################
+            Inline Event
+            ################################################################# -->
+            
+            <button onclick="showAlert()">Press me</div>
+
+            <!-- #################################################################
+            DOM Events
+            ################################################################# -->
+            
+            <input type="text" id="name" name="name" />
+            <button class="button">Add</button>
+
+        </div>
+
+        <script>
+            
+            function showAlert() {
+                alert('Alert called!');
+            }
+
+            /* #################################################################
+            Find element on DOM
+
+            - getElementById -> return one element with id
+            - getElementsByName -> return all elements with name
+            - getElementsByClassName -> return all elements with class name
+            - getElementsByTagName -> return all elements with tag, like input
+            - querySelector -> return first element
+            - querySelectorAll -> return all elements
+            ################################################################# */
+            
+            var inputElement = document.querySelector("input[name=name]"); 
+
+            /* #################################################################
+            Bind event
+            ################################################################# */
+            
+            var buttonElement = document.querySelector("button[class=button]");
+
+            buttonElement.onclick = function() {
+                var text = inputElement.value;
+                alert('My text is: ' + text);
+            }
+
+        </script>
+    </body>
+</html>
