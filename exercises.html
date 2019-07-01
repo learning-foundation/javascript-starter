@@ -184,11 +184,14 @@
 
             function checkAge(age) {
                 return new Promise(function(resolve, reject) {
-                    if (age >= 18) {
-                        return resolve();
-                    }
+                    setTimeout(function() {
+                        if (age >= 18) {
+                            return resolve();
+                        }
 
-                    return reject();
+                        return reject();
+
+                    }, 2000);
                 });
             }
 
