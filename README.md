@@ -1,4 +1,5 @@
 # javascript-starter
+
 JavaScript basic concepts
 
 - variables
@@ -9,4 +10,4 @@ JavaScript basic concepts
 - loops
 - intervals and timeout
 - DOM handling
-- async requests
+- async requests (XHR, Promise, AXIOS)

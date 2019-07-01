@@ -14,7 +14,7 @@ xhr.onreadystatechange = function() {
 };
 
 /* #################################################################
-Using XHR
+Using Promise
 ################################################################# */
 
 var myPromise = function() {
@@ -38,6 +38,19 @@ var myPromise = function() {
 var result = myPromise()
   .then(function(response) {
     console.log(response);
+  })
+  .catch(function(error) {
+    console.warn(error);
+  });
+
+/* #################################################################
+Using Axios
+################################################################# */
+
+axios
+  .get("https://api.github.com/users/vserpa")
+  .then(function(response) {
+    console.log(response.data.avatar_url);
   })
   .catch(function(error) {
     console.warn(error);
