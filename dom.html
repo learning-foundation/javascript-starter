@@ -10,7 +10,7 @@
             Inline Event
             ################################################################# -->
             
-            <button onclick="showAlert()">Press me</div>
+            <button onclick="showAlert()">Press me</button>
 
             <!-- #################################################################
             DOM Events
@@ -50,6 +50,21 @@
                 var text = inputElement.value;
                 alert('My text is: ' + text);
             }
+
+            /* #################################################################
+            Creating element
+            ################################################################# */
+
+            var linkElement = document.createElement('a');
+            linkElement.setAttribute('href', 'http://www.vinicius-serpa.com');
+            linkElement.setAttribute('title', 'author');
+            linkElement.setAttribute('target', 'blank');
+
+            var textElement = document.createTextNode('Vinicius Serpa');
+            linkElement.appendChild(textElement);
+
+            var containerElement = document.getElementById('app');
+            containerElement.appendChild(linkElement);
 
         </script>
     </body>
