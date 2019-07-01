@@ -89,6 +89,92 @@
 
             showSkills(users);
 
+            /* #################################################################
+            Create square
+            ################################################################# */ 
+
+            var containerElement = document.createElement('div');
+            document.body.appendChild(containerElement);            
+
+            var createSquareButton = document.createElement('button');
+            var textElement = document.createTextNode('Create Square');
+            createSquareButton.appendChild(textElement);
+            
+            createSquareButton.onclick = function() {
+                var containerElement = document.querySelector('div#squares');
+                var square = document.createElement('input');
+                square.style.width = 100;
+                square.style.height = 100;
+                square.style.backgroundColor = '#990000';
+
+                square.onmouseover = function() {
+                    square.style.backgroundColor = getRandomColor();
+                }
+
+                containerElement.appendChild(square);
+            }
+
+            containerElement.appendChild(createSquareButton);
+
+            var squareReplacement = document.createElement('div');
+            squareReplacement.setAttribute('id', 'squares');
+            containerElement.appendChild(squareReplacement);
+
+            /* #################################################################
+            Change square color
+            ################################################################# */ 
+
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            /* #################################################################
+            Show names
+            ################################################################# */ 
+
+            var names = ["Red", "Green", "Blue"];
+
+            var listElement = document.createElement('ul');
+
+            for (name of names) {
+                var itemElement = document.createElement('li');
+                var textElement = document.createTextNode(name);
+                itemElement.appendChild(textElement);
+                listElement.appendChild(itemElement);
+            }
+
+            containerElement.appendChild(listElement);
+
+            /* #################################################################
+            Add names
+            ################################################################# */
+
+            var inputName = document.createElement('input');
+            inputName.setAttribute('name', 'name');
+
+            var buttonAddName = document.createElement('button');
+            var text = document.createTextNode("Add");
+            buttonAddName.appendChild(text);
+
+            buttonAddName.onclick = function() {
+                var inputName = document.querySelector('input[name=name]');
+                var listElement = document.querySelector('ul');
+                var itemElement = document.createElement('li');
+                var textElement = document.createTextNode(inputName.value);
+
+                itemElement.appendChild(textElement);
+                listElement.appendChild(itemElement);
+                inputName.value = '';
+            }
+
+            containerElement.appendChild(inputName);
+            containerElement.appendChild(buttonAddName);
+
         </script>
 
     </body>
